@@ -2,52 +2,81 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SearchActivity">
+    tools:context=".ui.SearchActivity">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.nknalanda.falconbrick.viewmodel.SearchViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2"
+            tools:listitem="@layout/search_term_item" />
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/sv_item"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_search"
-        app:searchIcon="@drawable/ic_search"
-        app:closeIcon="@drawable/ic_clear"
-        app:queryHint="@string/enter_search_terms_here"/>
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/sv_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:closeIcon="@drawable/ic_clear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_search"
+            app:queryHint="@string/enter_search_terms_here"
+            app:searchIcon="@drawable/ic_search" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_search_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_size_50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sv_item"
-        android:src="@drawable/ic_search_tile_1"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_block"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/app_bar_color"
+            app:tabIndicatorHeight="1dp"
+            app:tabSelectedTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sv_item"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_search_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/dimen_size_30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_search_title"
-        android:text="@string/type_to_start_searching_for"
-        style="@style/TextStyleHeader"/>
+            <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_block"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_block"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_size_50dp"
+            android:src="@drawable/ic_search_tile_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sv_item" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_search_title"
+            style="@style/TextStyleHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_size_30dp"
+            android:gravity="center"
+            android:text="@string/type_to_start_searching_for"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_search_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

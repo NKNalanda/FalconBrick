@@ -10,4 +10,5 @@
     <color name="window_background_color">#13289E</color>
     <color name="app_bar_color">#05198A</color>
     <color name="highlight_color">#FFC107</color>
+    <color name="card_search_term_bg">#0A1A7C</color>
 </resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+        <variable
+            name="vm"
+            type="com.nknalanda.falconbrick.viewmodel.BlockItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/card_search_term_bg"
+        app:cardCornerRadius="@dimen/dimen_size_16dp"
+        app:cardElevation="@dimen/dimen_size_2dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_size_10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_phase"
+                app:layout_constraintBottom_toBottomOf="@id/tv_unit_title"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_phase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextStyleTitle"
+                android:textColor="@color/highlight_color"
+                android:gravity="start"
+                android:text="@string/phase"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_unit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/TextStyleHeader"
+                android:gravity="start"
+                android:text="@string/phase"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_right_arrow"
+                app:layout_constraintTop_toBottomOf="@id/tv_phase" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,15 +1,16 @@
-package com.nknalanda.falconbrick
+package com.nknalanda.falconbrick.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.databinding.DataBindingUtil
+import com.nknalanda.falconbrick.R
 import com.nknalanda.falconbrick.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
     private var binding: ActivitySplashScreenBinding? = null
-    private val SPLASH_TIMEOUT: Long = 2000;
+    private val SPLASH_TIMEOUT: Long = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
